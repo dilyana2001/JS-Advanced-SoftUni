@@ -1,10 +1,16 @@
-function argumentInfo(arr) {
+function argumentInfo(...arr) {
     let typeObj = {};
-    arr.forEach(x => {
-        console.log(`${typeof x}: ${x}`);
+    arr.forEach(el => {
+        solve(el)
+    })
+    Object.entries(typeObj)
+        .sort((a, b) => b[1] - a[1])
+        .map(x => console.log(`${x[0]} = ${x[1]}`));
+
+    function solve(x) {
         let counter = 0;
         !typeObj.hasOwnProperty(typeof x) ? typeObj[typeof x] = ++counter : typeObj[typeof x] += ++counter;
-    })
-    Object.entries(typeObj).map(x => console.log(`${x[0]} = ${x[1]}`));
+        console.log(`${typeof x}: ${x}`);
+    }
 }
-argumentInfo(['cat', 34, 42, function() { console.log('Hello world!'); }])
+argumentInfo({ name: 'bob' }, 3.333, 9.999)
