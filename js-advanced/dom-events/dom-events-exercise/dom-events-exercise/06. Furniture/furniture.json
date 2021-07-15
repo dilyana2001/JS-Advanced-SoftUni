@@ -1,0 +1,27 @@
+[{
+        "img": "https://i2.wp.com/hitachibg.com/wp-content/uploads/2017/11/Hitachi-R-WB800PRU6X-XGR.jpg?resize=180%2C180&ssl=1",
+        "name": "Ладилник",
+        "price": "3000",
+        "decFactor": "2.6"
+
+    },
+    {
+        "img": "https://mobisector.com/image/cache/123456/123/Yon/yon%202/yon2/yoooo/:%20)/product_44856-0-1-2-800x800.jpg",
+        "name": "Кафемашина",
+        "price": "400",
+        "decFactor": "1.5"
+    },
+    {
+        "img": "https://www.texnomax.com/media/6/3273.jpg",
+        "name": "Микровълнова",
+        "price": "159",
+        "decFactor": "1.4"
+
+    },
+    {
+        "img": "http://www.sencor.bg/getattachment/0706a717-a346-4361-931f-3ebfcd7e76be/41006300_02.aspx?width=100",
+        "name": "Кухненски робот",
+        "price": "320",
+        "decFactor": "1.2"
+    }
+]
