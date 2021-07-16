@@ -3,10 +3,9 @@ function getArticleGenerator(articles) {
 
     function closure() {
         let articleTag = document.createElement('article');
-        while (articles.length > 0) {
-            articleTag.textContent = articles.shift();
-            contentDiv.appendChild(articleTag);
-        }
+        if (articles.length <= 0) return
+        articleTag.textContent = articles.shift()
+        contentDiv.appendChild(articleTag);
     }
     return closure;
 }
