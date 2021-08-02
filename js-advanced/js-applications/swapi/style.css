@@ -1,0 +1,12 @@
+#swapi-header{
+    color:white;
+    font-size: 4em;
+}
+body{
+    background-image: url('img.png');
+    margin: 30px;
+    color: white;
+}
+#film-list{
+    list-style-type: none;
+}
