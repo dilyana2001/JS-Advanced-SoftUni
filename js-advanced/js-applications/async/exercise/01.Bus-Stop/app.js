@@ -1,3 +1,19 @@
 function getInfo() {
-    console.log("TODO...");
+    let baseURL = 'http://localhost:3030/';
+    let stopId = document.querySelector('#stopId');
+    let stopIdInput = stopId.value;
+    let stopNameInput = document.querySelector('#stopName');
+    let busesUl = document.querySelector('#buses')
+    stopId.value = '';
+    fetch(`${baseURL}jsonstore/bus/businfo/${stopIdInput}`)
+        .then(res => res.json())
+        .then(result => {
+            stopNameInput.textContent = result.name
+            Object.entries(result.buses).forEach(x => {
+                let currentBus = document.createElement('li')
+                currentBus.textContent = `Bus ${x[0]} arrives in ${x[1]}`
+                busesUl.appendChild(currentBus);
+            })
+        })
+        .catch(err => stopNameInput.textContent = `Error`);
 }
