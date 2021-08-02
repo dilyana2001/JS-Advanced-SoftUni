@@ -9,11 +9,16 @@ function getInfo() {
         .then(res => res.json())
         .then(result => {
             stopNameInput.textContent = result.name
+            Array.from(busesUl.querySelectorAll('li')).forEach(li => li.remove())
+
             Object.entries(result.buses).forEach(x => {
                 let currentBus = document.createElement('li')
                 currentBus.textContent = `Bus ${x[0]} arrives in ${x[1]}`
                 busesUl.appendChild(currentBus);
             })
         })
-        .catch(err => stopNameInput.textContent = `Error`);
+        .catch(() => {
+            Array.from(busesUl.querySelectorAll('li')).forEach(li => li.remove())
+            stopNameInput.textContent = `Error`
+        });
 }
