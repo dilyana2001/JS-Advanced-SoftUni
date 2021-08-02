@@ -1,29 +1,29 @@
 function solve() {
-    let infoSpan = document.querySelector('.info')
-    let baseUrl = 'http://localhost:3030/'
-    let firstStop = 'depot'
-    let departInput = document.querySelector('#depart')
-    let arriveInput = document.querySelector('#arrive')
+    let infoSpan = document.querySelector('.info');
+    let baseUrl = 'http://localhost:3030/';
+    let nextStop = 'depot';
+    let departInput = document.querySelector('#depart');
+    let arriveInput = document.querySelector('#arrive');
     let nameOfArrive;
 
     function depart() {
-        fetch(`${baseUrl}jsonstore/bus/schedule/${firstStop}`)
+        fetch(`${baseUrl}jsonstore/bus/schedule/${nextStop}`)
             .then(res => res.json())
             .then(result => {
                 infoSpan.textContent = `Next stop ${result.name}`
-                firstStop = result.next
+                nextStop = result.next
                 nameOfArrive = result.name
             })
             .catch(() => infoSpan.value = `Error`)
-        departInput.disabled = true
-        arriveInput.disabled = false
+        departInput.disabled = true;
+        arriveInput.disabled = false;
 
     }
 
     function arrive() {
-        infoSpan.textContent = `Arriving at ${nameOfArrive}`
-        departInput.disabled = false
-        arriveInput.disabled = true
+        infoSpan.textContent = `Arriving at ${nameOfArrive}`;
+        departInput.disabled = false;
+        arriveInput.disabled = true;
     }
 
     return {
