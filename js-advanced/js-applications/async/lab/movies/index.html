@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Movies</title>
+</head>
+
+<body>
+    <form action="" id="login-form">
+        <label for="email">Log in</label>
+        <input type="text" id="email" name="email" />
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password" />
+        <input type="submit" value="login">
+    </form>
+
+    <form action="" id="register-form">
+        <label for="reg-email">Register</label>
+        <input type="text" id="reg-email" name="email" />
+        <label for="password">Password</label>
+        <input type="password" id="reg-password" name="password" />
+        <input type="submit" value="register">
+    </form>
+
+    <h1 id="header">Movies</h1>
+    <ul id="movieUnList"> </ul><br>
+
+    <form id="add-movie-form">
+        <h2 id="movieHeader">Add Movie</h2>
+        <label for="inputAddMovie">Add title</label>
+        <input type="text" id="inputAddMovie" name="title" />
+        <label for="add-decription">Add description</label>
+        <textarea type="text" id="add-decription" name="description">
+            </textarea>
+        <!-- <input type="radio" name="gender" value="male">
+        <input type="radio" name="gender" value="female">
+        <input type="checkbox" name="cat" value="cat"> -->
+        <input type="submit" id="addMovie" value="Add movie" />
+        <input type="reset" name="" id="" value="reset" />
+
+    </form>
+    <script src="script.js">
+    </script>
+</body>
+
+</html>
