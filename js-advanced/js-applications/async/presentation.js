@@ -46,3 +46,9 @@ fetch('/articles', {
     method: 'get',
     headers: { 'X-Authorization': authToken }
 });
+
+fetch(`${baseUrl}jsonstore/collections/students/e105e714-dca1-4487-bf08-b084882d25b2`, {
+        method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(x => console.log(x))
