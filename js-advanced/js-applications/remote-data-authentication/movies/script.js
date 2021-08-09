@@ -68,8 +68,6 @@ function eventHandler() {
             .then(data => {
                 saveToken(data.accessToken)
                 console.log(data);
-
-
             })
             .catch(() => console.log(`error loginForm`))
     })
