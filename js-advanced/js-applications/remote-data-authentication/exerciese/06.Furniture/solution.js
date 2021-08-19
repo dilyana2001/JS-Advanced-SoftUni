@@ -1,9 +1,9 @@
 function solve() {
-    const tbodyHomePage = document.getElementById('tbody-home-page');
-    const baseUrl = 'http://localhost:3030/';
-    const guestHomePage = document.getElementById('guest-home-page')
+    const baseUrl = 'http://localhost:3030';
 
-    fetch(`${baseUrl}data/furniture`)
+    // query for all furnitures on HOME NOT LOGGED PAGE
+    const tbodyHomePage = document.getElementById('tbody-home-page');
+    fetch(`${baseUrl}/data/furniture`)
         .then(response => response.json())
         .then(result => {
             Object.entries(result).forEach(x => {
@@ -13,12 +13,10 @@ function solve() {
                 const priceTh = document.createElement('td');
                 const factorTH = document.createElement('td');
                 const markInput = document.createElement('input');
-
                 imgTh.src = x.img;
                 nameTh.textContent = x.name;
                 priceTh.textContent = x.price;
                 factorTH.textContent = x.decFactor;
-
                 tbodyHomePage.appendChild(furnitureTh);
                 furnitureTh.appendChild(imgTh);
                 furnitureTh.appendChild(nameTh);
@@ -26,7 +24,24 @@ function solve() {
                 furnitureTh.appendChild(factorTH);
                 furnitureTh.appendChild(markInput);
             });
-        });
+        })
+        .catch(() => console.log(`Error`))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,17 +62,7 @@ solve();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+// not working
 // async function request(url, options) {
 //     const response = await fetch(url, options);
 //     if (response.ok != true) {
