@@ -17,8 +17,12 @@ function solve() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    saveToken(data.accessToken);
-                    window.location.pathname = '/homeLogged.html';
+                    if (data.code != 403) {
+                        saveToken(data.accessToken);
+                        window.location.pathname = '/homeLogged.html';
+                    } else {
+                        console.log(data.message);
+                    }
                 })
                 .catch((err) => console.log(err.message));
         } else {
