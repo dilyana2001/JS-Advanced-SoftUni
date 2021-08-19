@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:3030';
 const logoutBtn = document.getElementById('logoutBtn');
-const tbody = document.getElementById('tbody');
+const tbody = document.getElementById('tbody-logged');
 const createFurniture = document.getElementById('create-furniture');
 const deleteBtn = document.getElementById('deleteBtn')
 
@@ -8,26 +8,25 @@ logoutBtn.addEventListener('click', () => {
     fetch(`${baseUrl}/users/logout`, {
             method: 'GET',
             headers: {
-                'X-Authorization': localStorage.getItem('authToken')
+                'X-Authorization': getToken()
             }
         })
         .then(response => response.json())
         .then(data => {
-            localStorage.removeItem('authToken')
+            localStorage.removeItem('auth_token');
             window.location.pathname = 'index.html';
         })
-        .catch(() => console.log(`Error with logout`));
+        .catch((err) => console.log(err.message));
 });
 
 createFurniture.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(e.target)
-
     fetch(`${baseUrl}/data/furniture`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Authorization': localStorage.getItem('auth_token')
+                'X-Authorization': getToken()
             },
             body: JSON.stringify({
                 name: formData.get('name'),
@@ -38,7 +37,8 @@ createFurniture.addEventListener('submit', (e) => {
         })
         .then(response => response.json())
         .then(data => showAllFurniture())
-        .catch(() => console.log(`Error with creating new furniture`));
+        .catch((err) => console.log(err.message));
+    createFurniture.reset()
 })
 
 
@@ -51,7 +51,7 @@ deleteBtn.addEventListener('click', () => {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-Authorization': localStorage.getItem('auth_token')
+                            'X-Authorization': getToken()
                         }
                     })
                     .then(response => response.json())
@@ -63,7 +63,7 @@ deleteBtn.addEventListener('click', () => {
 
 
 function showAllFurniture() {
-    tbody.textContent = ''
+    tbody.textContent = '';
     fetch(`${baseUrl}/data/furniture`)
         .then(response => response.json())
         .then(result => {
@@ -90,3 +90,8 @@ function showAllFurniture() {
         .catch(() => console.log(`Error`));
 }
 showAllFurniture()
+
+function getToken() {
+    let token = localStorage.getItem('auth_token');
+    return token;
+}
