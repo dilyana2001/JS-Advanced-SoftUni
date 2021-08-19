@@ -13,9 +13,9 @@ async function showAllFurniture() {
                 const priceTh = document.createElement('td');
                 const factorTH = document.createElement('td');
                 const markInput = document.createElement('input');
-                imgTh.setAttribute('src', x.img)
+                imgTh.src = x.img;
                 nameTh.textContent = x.name;
-                priceTh.textContent = x.price;
+                priceTh.textContent = `${x.price}$`;
                 factorTH.textContent = x.factor;
                 markInput.setAttribute('type', 'checkbox')
                 markInput.disabled = true;

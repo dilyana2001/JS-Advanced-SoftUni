@@ -11,7 +11,6 @@ logoutBtn.addEventListener('click', () => {
                 'X-Authorization': getToken()
             }
         })
-        .then(response => response.json())
         .then(data => {
             localStorage.removeItem('auth_token');
             window.location.pathname = 'index.html';
@@ -36,29 +35,34 @@ createFurniture.addEventListener('submit', (e) => {
             })
         })
         .then(response => response.json())
-        .then(data => showAllFurniture())
+        .then(data => {
+            console.log(data);
+            showAllFurniture()
+        })
         .catch((err) => console.log(err.message));
     createFurniture.reset()
 })
 
 
 deleteBtn.addEventListener('click', () => {
-    fetch(`${baseUrl}/data/furniture`)
-        .then(response => response.json())
-        .then(result => {
-            Object.values(result).forEach(x => {
-                fetch(`${baseUrl}/data/furniture/` + x._id, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Authorization': getToken()
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => showAllFurniture())
-                    .catch(() => console.log(`Error with deleting furnitures`))
-            })
-        })
+    const furnitures = deleteBtn.parentElement.parentElement.querySelector('table tbody');
+    // fetch(`${baseUrl}/data/furniture`)
+    //     .then(response => response.json())
+    //     .then(result => {
+    //         Object.values(result).forEach(x => {
+    //             fetch(`${baseUrl}/data/furniture/` + x._id, {
+    //                     method: 'DELETE',
+    //                     headers: {
+    //                         'Content-Type': 'application/json',
+    //                         'X-Authorization': getToken()
+    //                     }
+    //                 })
+    //                 .then(response => response.json())
+    //                 .then(data => showAllFurniture())
+    //                 .catch(() => console.log(`Error with deleting furnitures`))
+    //         })
+    //     })
+
 })
 
 
@@ -76,7 +80,7 @@ function showAllFurniture() {
                 const markInput = document.createElement('input');
                 imgTh.setAttribute('src', x.img)
                 nameTh.textContent = x.name;
-                priceTh.textContent = x.price;
+                priceTh.textContent = `${x.price}$`;
                 factorTH.textContent = x.factor;
                 markInput.setAttribute('type', 'checkbox')
                 tbody.appendChild(furnitureTh);
