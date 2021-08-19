@@ -5,27 +5,31 @@ function solve() {
 
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        let formData = new FormData(e.target);
-        fetch(`${baseUrl}/users/login`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    email: formData.get('email'),
-                    password: formData.get('password')
+        let formData = new FormData(e.currentTarget);
+        if (formData.get('password') != '' && formData.get('email') != '') {
+            fetch(`${baseUrl}/users/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: formData.get('email'),
+                        password: formData.get('password')
+                    })
                 })
-            })
-            .then(response => response.json())
-            .then(data => {
-                window.location.pathname = '/homeLogged.html'
-                localStorage.setItem('auth_token', data.accessToken)
-            })
-            .catch(() => console.log(`Error with login form`));
+                .then(response => response.json())
+                .then(data => {
+                    saveToken(data.accessToken);
+                    window.location.pathname = '/homeLogged.html';
+                })
+                .catch((err) => console.log(err.message));
+        } else {
+            console.log(`Try again!`);
+        }
     });
 
     registerForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        let formData = new FormData(e.target);
-        if (formData.get('rePass') === formData.get('password')) {
+        let formData = new FormData(e.currentTarget);
+        if (formData.get('rePass') === formData.get('password') && formData.get('password') != '') {
             fetch(`${baseUrl}/users/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -37,14 +41,18 @@ function solve() {
                 })
                 .then(response => response.json())
                 .then(data => {
+                    saveToken(data.accessToken);
                     window.location.pathname = '/homeLogged.html'
-                    localStorage.setItem('auth_token', data.accessToken)
                 })
-                .catch(() => console.log(`Error with register form`));
+                .catch((err) => console.log(err.message));
         } else {
             console.log(`Try again!`);
         }
     });
+
+    function saveToken(token) {
+        localStorage.setItem('auth_token', token);
+    }
 }
 
 solve()
