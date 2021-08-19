@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h2>Create Product</h2>
-                                <form action="" method="post">
+                                <form id="create-furniture" action="" method="post">
                                     <label>Name: <input type="text" name="name"></label>
                                     <label>Price: <input type="text" name="price"></label>
                                     <label>Factor: <input type="text" name="factor"></label>
@@ -51,10 +51,12 @@
                                             <th>Mark</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tbody">
                                     </tbody>
                                 </table>
                                 <button id="buyBtn">Buy</button>
+                                <button id="deleteBtn">Delete All items</button>
+
                                 <hr>
                                 <div class="orders">
                                     <p>Bought furniture: <span>Office chair, Sofa</span></p>
@@ -70,7 +72,7 @@
             </div>
         </div>
     </main>
-    <script src="solution.js"></script>
+    <script src="homeLogged.js"></script>
 </body>
 
 </html>
