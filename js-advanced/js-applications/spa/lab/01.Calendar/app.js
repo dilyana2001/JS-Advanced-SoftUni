@@ -14,20 +14,7 @@ function hideDaysCalendarElements() {
 }
 hideDaysCalendarElements();
 
-let month = {
-    Jan: 1,
-    Feb: 2,
-    Mar: 3,
-    Apr: 4,
-    May: 5,
-    Jun: 6,
-    Jul: 7,
-    Aug: 8,
-    Sept: 9,
-    Oct: 10,
-    Nov: 11,
-    Dec: 12,
-}
+let month = { Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6, Jul: 7, Aug: 8, Sept: 9, Oct: 10, Nov: 11, Dec: 12 }
 
 document.querySelector('.yearsCalendar').addEventListener('click', (e) => {
     hideMonthsElements();
@@ -58,6 +45,7 @@ document.querySelector('.yearsCalendar').addEventListener('click', (e) => {
                 exactTdForAddingANote = dataLink.parentNode;
             }
 
+            // note update
             document.getElementById('notesSection').classList.remove('hidden');
 
             let noteHeaderID = document.getElementById('noteHeaderID');
