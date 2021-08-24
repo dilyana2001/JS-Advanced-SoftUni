@@ -1,40 +1,52 @@
-let hiddenMonthElements = document.querySelectorAll('.monthCalendar')
-for (let hiddenMonthElement of hiddenMonthElements) {
-    hiddenMonthElement.classList.add('hidden');
+function hideMonthsElements() {
+    const hiddenMonthElements = document.querySelectorAll('.monthCalendar');
+    for (const hiddenMonthElement of hiddenMonthElements) {
+        hiddenMonthElement.classList.add('hidden');
+    }
 }
-let hiddenDaysCalendarElements = document.querySelectorAll('.daysCalendar')
-for (let hiddenDaysCalendarElement of hiddenDaysCalendarElements) {
-    hiddenDaysCalendarElement.classList.add('hidden');
+hideMonthsElements();
+
+function hideDaysCalendarElements() {
+    const hiddenDaysCalendarElements = document.querySelectorAll('.daysCalendar');
+    for (const hiddenDaysCalendarElement of hiddenDaysCalendarElements) {
+        hiddenDaysCalendarElement.classList.add('hidden');
+    }
 }
-let year = {
-    year2020: 'y0',
-    year2021: 'y1',
-    year2022: 'y2',
-    year2023: 'y3'
+hideDaysCalendarElements();
+
+const month = {
+    Jan: 1,
+    Feb: 2,
+    Mar: 3,
+    Apr: 4,
+    May: 5,
+    Jun: 6,
+    Jul: 7,
+    Aug: 8,
+    Sept: 9,
+    Oct: 10,
+    Nov: 11,
+    Dec: 12,
 }
 
 document.querySelector('.yearsCalendar').addEventListener('click', (e) => {
-    let innerP = e.target || e.target.children[0];
+    hideMonthsElements();
+    hideDaysCalendarElements();
+    let currentYear = '';
+    let currentMonth = '';
+    if (e.target.tagName == 'DIV' || e.target.tagName == 'TD') {
+        const dataLink = e.target.querySelector('div') || e.target;
+        currentYear = dataLink.textContent;
+        document.getElementById(`year-${currentYear}`).classList.remove('hidden');
 
-    let key = (innerP.querySelector('div') || innerP).id;
-    let currentClick = year[key];
-    let data = document.getElementById(`year-202${currentClick[1]}`);
-    let otherYears = []
-    for (const kvp in year) {
-        if (year[kvp][1] != currentClick[1]) {
-            otherYears.push(year[kvp])
+    }
+
+    document.getElementById(`year-${currentYear}`).addEventListener('click', (e) => {
+        hideDaysCalendarElements();
+        if (e.target.tagName == 'DIV' || e.target.tagName == 'TD') {
+            const dataLink = e.target.querySelector('div') || e.target;
+            currentMonth = dataLink.textContent;
+            document.getElementById(`month-${currentYear}-${month[currentMonth]}`).classList.remove('hidden');
         }
-    }
-    hidePage(otherYears)
-    showPage(data);
+    })
 })
-
-function showPage(data) {
-    data.classList.remove('hidden');
-}
-
-function hidePage(data) {
-    for (const id of data) {
-        document.getElementById(`year-202${id[1]}`).classList.add('hidden');
-    }
-}
