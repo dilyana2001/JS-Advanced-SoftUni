@@ -1,3 +1,5 @@
+import { showDetails } from "./details.js";
+
 function createMoviePreview(x) {
     let element = document.createElement('div');
     element.classList = ('card mb-4');
@@ -8,12 +10,11 @@ function createMoviePreview(x) {
                    </div>
                    <div class="card-footer">
                        <a href="#">
-                           <button type="button" class="btn btn-info">Details</button>
+                           <button type="button" id="${x._id}" class="btn btn-info movieDetailsLink">Details</button>
                        </a>
                    </div>
                    `
     return element;
-
 }
 
 let main;
@@ -24,6 +25,11 @@ export function setupHome(mainTarget, sectionTarget) {
     main = mainTarget;
     section = sectionTarget;
     container = document.querySelector('.justify-content-center');
+    container.addEventListener('click', (e) => {
+        if (e.target.classList.contains('movieDetailsLink')) {
+            showDetails(e.target.id);
+        }
+    })
 }
 
 export async function showHome() {
@@ -40,7 +46,4 @@ export async function showHome() {
             container.appendChild(fragment)
         })
         .catch(err => console.log(err.message))
-
-
-
 }

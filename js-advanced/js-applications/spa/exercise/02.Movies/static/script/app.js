@@ -1,6 +1,6 @@
 import { setupCreate, showCreate } from './createMovie.js'
 import { setupHome, showHome } from './home.js'
-import { setupDetails } from './details.js'
+import { setupDetails, showDetails } from './details.js'
 import { setupRegister, showRegister } from './register.js'
 import { setupEdit } from './editMovie.js'
 import { setupLogin, showLogin } from './login.js'
@@ -51,6 +51,7 @@ function setupNavigation() {
         e.preventDefault();
         showCreate();
     })
+
     logoutBtn.addEventListener('click', () => {
         fetch(`http://localhost:3030/users/logout`, {
                 method: 'GET',
