@@ -52,6 +52,7 @@ function setupNavigation() {
         showCreate();
     })
 
+
     logoutBtn.addEventListener('click', () => {
         fetch(`http://localhost:3030/users/logout`, {
                 method: 'GET',

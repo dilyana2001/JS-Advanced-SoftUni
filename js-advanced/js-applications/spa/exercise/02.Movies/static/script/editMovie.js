@@ -6,6 +6,7 @@ export function setupEdit(mainTarget, sectionTarget) {
     section = sectionTarget;
 }
 
+
 export async function showEdit() {
     main.innerHTML = '';
     main.appendChild(section);
