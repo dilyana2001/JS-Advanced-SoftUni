@@ -45,38 +45,38 @@ document.querySelector('.yearsCalendar').addEventListener('click', (e) => {
                 exactTdForAddingANote = dataLink.parentNode;
             }
 
-            // note update
-            document.getElementById('notesSection').classList.remove('hidden');
+            // // note update
+            // document.getElementById('notesSection').classList.remove('hidden');
 
-            let noteHeaderID = document.getElementById('noteHeaderID');
-            let noteHeaderIDH2 = noteHeaderID.querySelector('h2');
-            noteHeaderIDH2.textContent = `Add note for ${currentDay}-${currentMonth}-${currentYear}`;
-            let noteHeaderIDDescr = noteHeaderID.querySelector('p');
-            let noteHeaderIDInput = noteHeaderID.querySelector('input');
-            noteHeaderIDDescr.textContent = '';
-            exactTdForAddingANote.querySelectorAll('.noteForTheDay').innerHTML = '';
-            if (exactTdForAddingANote.querySelectorAll('.noteForTheDay').length > 0) {
-                for (const note of exactTdForAddingANote.querySelectorAll('.noteForTheDay')) {
-                    let noteP = document.createElement('p')
-                    noteP.textContent = note.textContent;
-                    noteHeaderIDDescr.appendChild(noteP)
-                }
-            }
+            // let noteHeaderID = document.getElementById('noteHeaderID');
+            // let noteHeaderIDH2 = noteHeaderID.querySelector('h2');
+            // noteHeaderIDH2.textContent = `Add note for ${currentDay}-${currentMonth}-${currentYear}`;
+            // let noteHeaderIDDescr = noteHeaderID.querySelector('p');
+            // let noteHeaderIDInput = noteHeaderID.querySelector('input');
+            // noteHeaderIDDescr.textContent = '';
+            // exactTdForAddingANote.querySelectorAll('.noteForTheDay').innerHTML = '';
+            // if (exactTdForAddingANote.querySelectorAll('.noteForTheDay').length > 0) {
+            //     for (const note of exactTdForAddingANote.querySelectorAll('.noteForTheDay')) {
+            //         let noteP = document.createElement('p')
+            //         noteP.textContent = note.textContent;
+            //         noteHeaderIDDescr.appendChild(noteP)
+            //     }
+            // }
 
-            noteHeaderID.querySelector('button').addEventListener('click', () => {
-                if (noteHeaderIDInput.value != '') {
-                    let notificationElement = document.createElement('span')
-                    notificationElement.textContent = '-';
-                    let noteDiv = document.createElement('div')
-                    noteDiv.classList.add('hidden');
-                    noteDiv.classList.add('noteForTheDay');
-                    noteHeaderIDDescr.textContent = noteHeaderIDInput.value;
-                    noteDiv.textContent = noteHeaderIDInput.value;
-                    exactTdForAddingANote.appendChild(noteDiv);
-                    exactTdForAddingANote.appendChild(notificationElement);
-                }
-                noteHeaderIDInput.value = '';
-            })
+            // noteHeaderID.querySelector('button').addEventListener('click', () => {
+            //     if (noteHeaderIDInput.value != '') {
+            //         let notificationElement = document.createElement('span')
+            //         notificationElement.textContent = '-';
+            //         let noteDiv = document.createElement('div')
+            //         noteDiv.classList.add('hidden');
+            //         noteDiv.classList.add('noteForTheDay');
+            //         noteHeaderIDDescr.textContent = noteHeaderIDInput.value;
+            //         noteDiv.textContent = noteHeaderIDInput.value;
+            //         exactTdForAddingANote.appendChild(noteDiv);
+            //         exactTdForAddingANote.appendChild(notificationElement);
+            //     }
+            //     noteHeaderIDInput.value = '';
+            // })
         })
     })
 })

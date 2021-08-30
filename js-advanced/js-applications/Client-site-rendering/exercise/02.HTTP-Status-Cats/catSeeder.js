@@ -21,6 +21,6 @@ const cats = [
     new Cat('511', 511, 'Network Authentication Required', 'cat511')
 ];
 
-export {
+export default {
     cats
 };
