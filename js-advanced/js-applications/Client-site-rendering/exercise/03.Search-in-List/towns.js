@@ -1,4 +1,4 @@
-export const towns = [
+const towns = [
     'Sofia',
     'Pleven',
     'Varna',
@@ -6,3 +6,5 @@ export const towns = [
     'Dolna Bania',
     'Gorna Bania'
 ];
+
+export default towns;
