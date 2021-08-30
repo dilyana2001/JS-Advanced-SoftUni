@@ -1,5 +1,4 @@
-export const contacts = [
-    {
+const contacts = [{
         id: 1,
         name: 'John',
         phoneNumber: '0847759632',
@@ -36,3 +35,5 @@ export const contacts = [
         email: 'david@david.com'
     }
 ];
+
+export default contacts;
