@@ -1,6 +1,6 @@
 import { saveToken } from './auth.js'
 import navigation from './navigation.js'
-import moviesPage from './moviesPage.js'
+import moviesPage from './pages/moviesPage.js'
 
 let baseUrl = 'http://localhost:3030';
 let registerSection = document.querySelector('.register');

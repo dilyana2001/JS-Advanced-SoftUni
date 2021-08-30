@@ -1,6 +1,6 @@
 import { isAuthenticated } from './auth.js';
 import loginPage from './loginPage.js';
-import moviesPage from './moviesPage.js';
+import moviesPage from './pages/moviesPage.js';
 import registerPage from './registerPage.js';
 import navigation from './navigation.js'
 

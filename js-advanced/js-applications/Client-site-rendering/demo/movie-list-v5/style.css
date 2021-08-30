@@ -1,0 +1,12 @@
+body {
+    padding: 20px;
+}
+
+.movie-list {
+    display: flex;
+}
+
+.movie-item {
+    list-style-type: none;
+    padding: 20px;
+}
