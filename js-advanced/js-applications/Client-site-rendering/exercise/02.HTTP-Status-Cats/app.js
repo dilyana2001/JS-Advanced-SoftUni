@@ -10,7 +10,6 @@ function showStatusCodeHandler(e) {
     detailsCatElement.style.display == 'none' ?
         detailsCatElement.style.display = 'block' :
         detailsCatElement.style.display = 'none';
-    console.log(detailsCatElement);
 }
 const catsArray = cats.cats;
 catsArray.map(cot => cot.showStatusCodeBtn = showStatusCodeHandler);

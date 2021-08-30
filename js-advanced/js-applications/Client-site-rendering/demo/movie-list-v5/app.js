@@ -1,8 +1,8 @@
 import { render, html } from "../../node_modules/lit-html/lit-html.js"; // lit-html syntax 
-import movieListTemplate from './src/templates/movieListTemplate.js'
+import movieListTemplate from './src/templates/movieListTemplate.js';
 import movieService from "./src/services/movieService.js";
 
-let rootElement = document.querySelector('#root')
+let rootElement = document.querySelector('#root');
 
 function onDetailsClickHandler(e) {
     console.log(e);
@@ -11,6 +11,6 @@ function onDetailsClickHandler(e) {
 movieService.getAll()
     .then(movies => {
         movies[0].onDetailsClick = onDetailsClickHandler;
-        let movieListTemplateResult = movieListTemplate(movies)
-        render(movieListTemplateResult, rootElement)
+        let movieListTemplateResult = movieListTemplate(movies);
+        render(movieListTemplateResult, rootElement);
     })

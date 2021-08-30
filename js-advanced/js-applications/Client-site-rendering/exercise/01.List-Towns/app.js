@@ -11,5 +11,5 @@ btnLoadTowns.addEventListener('click', (e) => {
             e.preventDefault();
             let contentArray = inputContent.value.split(', ');
             let ulElement = html `<ul>${contentArray.map(town=> html`${townTemplate(town)}`)}</ul>`; // template
-    render(ulElement, rootElement)
+    render(ulElement, rootElement);
 })

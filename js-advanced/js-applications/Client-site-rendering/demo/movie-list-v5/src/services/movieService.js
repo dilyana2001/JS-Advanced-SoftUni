@@ -1,4 +1,4 @@
-let baseUrl = 'http://localhost:3030'
+let baseUrl = 'http://localhost:3030';
 
 function getAll() {
     return fetch(`${baseUrl}/data/movies`)
