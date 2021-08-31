@@ -1,0 +1,17 @@
+{
+    "name": "05.table-search",
+    "version": "1.0.0",
+    "description": "",
+    "main": "solution.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "http-server"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "http-server": "^13.0.1",
+        "lit-html": "^1.4.1"
+    }
+}
