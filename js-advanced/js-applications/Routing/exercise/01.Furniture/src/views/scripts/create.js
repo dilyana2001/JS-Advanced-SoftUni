@@ -65,5 +65,4 @@ export default function(context) {
             })
             .catch((err) => console.log(err.message))
     });
-    console.log(context);
 }

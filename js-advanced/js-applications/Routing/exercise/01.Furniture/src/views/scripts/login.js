@@ -41,6 +41,5 @@ export default function(context) {
         let formData = new FormData(e.currentTarget)
         furnitureServices.loginFetch(formData)
         context.page.redirect('/home');
-        console.log(context);
     })
 }

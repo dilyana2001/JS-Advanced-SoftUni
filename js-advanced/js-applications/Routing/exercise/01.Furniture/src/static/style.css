@@ -24,6 +24,7 @@ span {
 /* header  */
 
 header {
+    display: flex;
     padding: 32px;
     padding-left: 45px;
     background-color: #cccccc;
@@ -54,7 +55,7 @@ h1 a:visited {
 }
 
 nav {
-    display: inline-block;
+    display: flex;
     position: absolute;
     right: 16px;
     text-align: right;

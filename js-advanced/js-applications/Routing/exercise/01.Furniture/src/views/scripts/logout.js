@@ -10,7 +10,7 @@ export default function(context) {
                 localStorage.removeItem('email');
                 [...document.querySelectorAll('nav #user')].forEach(link => link.style.display = 'none');
                 [...document.querySelectorAll('nav #guest')].forEach(link => link.style.display = 'block');
+                context.page.redirect('/home');
             })
     })
-    console.log(context);
 }

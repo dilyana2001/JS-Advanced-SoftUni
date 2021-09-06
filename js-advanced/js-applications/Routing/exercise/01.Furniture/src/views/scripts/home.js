@@ -41,7 +41,6 @@ let rootElement = document.querySelector('#root');
 export default function (context) {
     furnitureServices.getAllFurnitures()
         .then(result => {
-            console.log(result);
             render(containerTemplate(result), rootElement)
         })
         .catch((err) => console.log(err.message))
