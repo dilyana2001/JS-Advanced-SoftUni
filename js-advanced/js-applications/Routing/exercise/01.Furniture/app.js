@@ -8,10 +8,10 @@ import login from './src/views/scripts/login.js';
 import logout from './src/views/scripts/logout.js'
 import myFurniture from './src/views/scripts/myFurniture.js';
 import register from './src/views/scripts/register.js';
-// import catalog from './src/views/scripts/catalog.js';
 
 
-page('/', '/home');
+
+page('/', home);
 page('/home', home);
 page('/create', create);
 page('/login', login);
@@ -20,6 +20,5 @@ page('/details/:id', details);
 page('/edit/:id', edit);
 page('/myFurniture', myFurniture);
 page('/register', register);
-// page('/catalog', catalog);
 
-page.start();
+page();

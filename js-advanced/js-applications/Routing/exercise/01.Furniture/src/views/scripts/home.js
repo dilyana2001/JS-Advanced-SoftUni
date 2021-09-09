@@ -5,7 +5,7 @@ const furnitureTemplate = (furniture) => html `
       <div class="col-md-4">
                 <div class="card text-white bg-primary">
                     <div class="card-body">
-                            <img src="" />
+                            <img src="https://berkowitz.com.au/wp-content/uploads/2019/05/IMG_Recliners.jpg" />
                             <p>${furniture.description}</p>
                             <footer>
                                 <p>Price: <span>${furniture.price} $</span></p>
