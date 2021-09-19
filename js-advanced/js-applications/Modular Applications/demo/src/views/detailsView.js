@@ -9,7 +9,7 @@ const isOwnerOfMovie = (onDelClickHandler, movie) => html `
 `;
 
 
-const detailsTemplate = (movie, userId, onDelClick, likeNumb, onLike) => html `
+const detailsTemplate = (movie, userId, onDelClick, onLike, likeSpan) => html `
  <div class="card movie-details" style="width: 18rem;">
      <img src="${movie.img}" class="card-img-top" alt="${movie.title}">
      <div class="card-body">
@@ -17,7 +17,7 @@ const detailsTemplate = (movie, userId, onDelClick, likeNumb, onLike) => html `
        <p className="card-text">${movie.description}</p>
        <section class="font-awsome">
        <a @click=${onLike} href=""><i class="fa${true ? 'r' : 's'} fa-heart"></i></a>
-       <p>${likeNumb}</p>
+      <span></span>  ${likeSpan}</span>
        </section>
            ${movie._ownerId == userId ? isOwnerOfMovie(onDelClick, movie) : ''}
      </div>
@@ -26,46 +26,18 @@ const detailsTemplate = (movie, userId, onDelClick, likeNumb, onLike) => html `
 
 
 export function detailsPage(context) {
+
+    const onMovieLike = (movie) => movieService.addLike(movie).catch(err => alert(err.message));
+
+    const deleteMovieEventHandler = () => context.page.redirect(`/delete-movie/${context.params.id}`);
+
+    const likeSpan = (movie) => movieService.getMovieLikes(movie).then(res => html `${res}`).catch(err => alert(err.message))
+
     movieService.getMovieById(context.params.id)
         .then(movie => {
-            // let likes = myLikeOnMovie(movie, context.userId)
-            context.render(detailsTemplate(movie, context.userId, deleteMovieEventHandler, movieLikes(movie), onMovieLike(movie)))
+            context.render(detailsTemplate(movie, context.userId, deleteMovieEventHandler, onMovieLike(movie), likeSpan(movie)))
         })
         .catch(err => alert(err.message));
 
-    let likesSpan = html ``;
 
-    function movieLikes(movie) {
-        movieService.getMovieLikes(movie)
-            .then(likes => {
-
-            })
-            .catch(err => alert(err.message));
-    }
-
-    // function myLikeOnMovie(movie, userId) {
-    //     movieService.getMyMovieLikes(movie, userId)
-    //         .then(result => {
-    //             currentLikes += result;
-    //         })
-    //     return currentLikes;
-    // }
-
-    function onMovieLike(movie) {
-        movieService.addLike(movie)
-            .then()
-            .catch(err => alert(err.message));
-    }
-
-    function deleteMovieEventHandler() {
-        context.page.redirect('/delete-movie');
-        // let confirmed = confirm(`Are you sure?`)
-        // if (confirmed) {
-        movieService.deleteMovie(context.params.id)
-            .then(() => {
-
-            })
-            .catch(err => alert(err.message));
-        //     }
-    }
 }

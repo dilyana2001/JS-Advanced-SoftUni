@@ -27,6 +27,7 @@ page('/login', loginPage);
 page('/register', registerPage);
 page('/details/:id', detailsPage);
 page('/delete-movie', deleteMoviePage);
+page('/delete-movie/:id', deleteMoviePage)
 page('/details/:id/edit', editMoviePage);
 page('/movies/add', addMoviePage);
 page('/movie-created', yourCreateisReadyView)

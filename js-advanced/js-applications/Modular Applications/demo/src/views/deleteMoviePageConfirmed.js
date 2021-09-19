@@ -18,14 +18,16 @@ const deleteMovieTemplate = (onClick, movie) => html `
 
 export function deleteMoviePage(context) {
     const onMovieDelete = () => {
-        movieService.deleteMovie(context.params.movieId)
-            .then(res => {
-                console.log(res);
+        console.log(context.params.id)
+        movieService.deleteMovie(context.params.id)
+            .then(() => {
                 context.page.redirect('/movies')
             })
     }
-    movieService.getMovieById(context.params.movieId)
+
+    movieService.getMovieById(context.params.id)
         .then(movie => {
             context.render(deleteMovieTemplate(onMovieDelete, movie))
         })
+
 }

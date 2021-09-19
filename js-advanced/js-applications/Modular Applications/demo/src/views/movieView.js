@@ -21,7 +21,6 @@ const moviesTemplate = (movies) => html `
 export function moviePage(context) {
    movieService.getAll()
          .then(movies=>{
-           console.log(movies);
          context.render(moviesTemplate(movies))
       })
       .catch(err=> alert(err.message));
