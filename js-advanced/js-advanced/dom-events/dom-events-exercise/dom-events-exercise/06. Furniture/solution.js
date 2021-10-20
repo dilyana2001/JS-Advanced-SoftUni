@@ -1,38 +1,3 @@
-// function solve() {
-//     let generateButton = document.querySelectorAll('#exercise button')[0];
-//     let generateInput = document.querySelectorAll('#exercise textarea')[0];
-//     let buyButton = document.querySelectorAll('#exercise button')[1];
-//     let buyInput = document.querySelectorAll('#exercise textarea')[1];
-//     let table = document.querySelector('.col-md-12 tbody');
-//     let component = table.querySelector('tr');
-//     generateButton.addEventListener('click', generateItems);
-//     buyButton.addEventListener('click', buyItems);
-
-//     function generateItems() {
-//         let parsedData = JSON.parse(generateInput.value);
-//         parsedData.forEach(obj => {
-//             let element = component.cloneNode(true);
-//             element.querySelector('td img').setAttribute('src', obj.img);
-//             element.querySelector('td:nth-child(2) p').textContent = obj.name;
-//             element.querySelector('td:nth-child(3) p').textContent = Number(obj.price);
-//             element.querySelector('td:nth-child(4) p').textContent = Number(obj.decFactor);
-//             element.querySelector('td input').disabled = false;
-//             table.appendChild(element);
-//         })
-//     }
-
-//     function buyItems() {
-//         let tableRows = Array.from(table.querySelectorAll('tr'));
-//         let checked = tableRows.filter(row => row.querySelectorAll('input:checked').length > 0); // filter checked inputs
-//         let names = checked.map(name => name.querySelector('td:nth-child(2) p')).map(x => x.textContent).join(', ');
-//         let price = checked.map(price => price.querySelector('td:nth-child(3) p')).map(x => Number(x.textContent)).reduce((a, b) => (a + b), 0);
-//         let average = checked.map(dec => dec.querySelector('td:nth-child(4) p')).map(x => Number(x.textContent));
-//         let averageDec = average.reduce((a, b) => a + b, 0) / average.length;
-//         buyInput.textContent = `Bought furniture: ${names}\nTotal price: ${price.toFixed(2)}\nAverage decoration factor: ${averageDec.toFixed(2)}`;
-//     }
-// }
-
-
 function solve() {
     let generateBtn = document.querySelector('button');
     let buyBtn = Array.from(document.querySelectorAll('button'))[1];
