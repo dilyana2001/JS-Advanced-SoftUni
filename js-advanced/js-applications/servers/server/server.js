@@ -1369,6 +1369,7 @@
     	movies: {
     		"1240549d-f0e0-497e-ab99-eb8f703713d7": {
     			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                _ownerName: "George",
     			title: "Black Widow",
     			description: "Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Comes on the screens 2020.",
     			img: "https://miro.medium.com/max/735/1*akkAa2CcbKqHsvqVusF3-w.jpeg",
@@ -1377,6 +1378,7 @@
     		},
     		"143e5265-333e-4150-80e4-16b61de31aa0": {
     			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                _ownerName: "George",
     			title: "Wonder Woman 1984",
     			description: "Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient artifact that grants wishes goes missing.",
     			img: "https://pbs.twimg.com/media/ETINgKwWAAAyA4r.jpg",
@@ -1385,6 +1387,7 @@
     		},
     		"a9bae6d8-793e-46c4-a9db-deb9e3484909": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                _ownerName: "Peter",
     			title: "Top Gun 2",
     			description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him.",
     			img: "https://i.pinimg.com/originals/f2/a4/58/f2a458048757bc6914d559c9e4dc962a.jpg",
