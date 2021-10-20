@@ -7,7 +7,6 @@ function solve() {
         const descriptionOfTask = document.querySelector('#description');
         const dateOfTask = document.querySelector('#date');
         const wrapperDiv = document.querySelector('.wrapper section:nth-child(2) div:nth-child(2)');
-        // let regex = /[0-9]{4}[.][0-9]{2}[.][0-9]{2}/g;
         if (!nameOfTask.value || !descriptionOfTask.value || !dateOfTask.value) { return }
         const startGreenBtn = ['Start', 'green'];
         const deleteRedBtn = ['Delete', 'red'];
