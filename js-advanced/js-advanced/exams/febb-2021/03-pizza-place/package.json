@@ -2,7 +2,7 @@
     "name": "unit-test",
     "version": "1.0.0",
     "description": "",
-    "main": "./test/cinema.js",
+    "main": ".unit-test",
     "scripts": {
         "test": "mocha ./test/**.test.js"
     },
