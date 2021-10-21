@@ -1,10 +1,10 @@
 {
-    "name": "03-pizza-place",
+    "name": "unit-test",
     "version": "1.0.0",
     "description": "",
-    "main": "pizza-place.js",
+    "main": "./test/cinema.js",
     "scripts": {
-        "test": "mocha ./**/*.test.js"
+        "test": "mocha ./test/**.test.js"
     },
     "keywords": [],
     "author": "",
