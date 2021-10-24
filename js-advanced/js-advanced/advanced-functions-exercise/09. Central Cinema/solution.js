@@ -1,8 +1,4 @@
 function solve() {
-    // let formElements = document.querySelectorAll('#container').children
-    // let inputs = [...formElements].spice(0, formElements.length - 1) // ne raboti v judge
-    // let inputs = Array.from(formElements).spice(0,  - 1)
-    // let onScreenBtn = [...formElements].slice(formElements.length - 1)
     let containerInputs = document.querySelectorAll('#container input');
     let container = document.querySelector('#container button');
     let moviesSector = document.querySelector('#movies>ul');
@@ -37,8 +33,8 @@ function solve() {
         buttonPrice.addEventListener('click', archiveHandler)
 
         function archiveHandler() {
-            if (!Number(inputPrice.value)) return
-            let soldTickets = Number(inputPrice.value)
+            if (inputPrice.value == '' || isNaN(inputPrice.value)) return
+            let soldTickets = Number(inputPrice.value);
             let archiveLiItem = document.createElement('li');
             let archiverItemName = document.createElement('span');
             archiverItemName.textContent = itemName.textContent

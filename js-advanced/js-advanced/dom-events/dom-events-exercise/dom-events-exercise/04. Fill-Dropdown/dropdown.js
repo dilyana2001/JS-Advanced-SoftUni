@@ -9,5 +9,4 @@ function addItem() {
 
     newItemText.value = '';
     newItemValue.value = '';
-    dropDownMenu.value = '';
 }
