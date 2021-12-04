@@ -1,5 +1,6 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import authService from '../services/authService.js';
+import { setUserData } from '../util.js'
 
 const registerView = () => html`
         <section id="register-page" class="register">
@@ -34,17 +35,34 @@ export default function (ctx) {
     ctx.render(registerView());
 
     const registerForm = document.getElementById('register-form');
+
     registerForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        if (!formData.get('email' || !formData.get('password'))) {
+        if (!formData.get('email') || !formData.get('password')) {
             return alert(`All fields are required!`)
         }
         if (formData.get('password') !== formData.get('confirm-pass')) {
             return alert(`Password don't match!`)
         }
-        authService.register(formData);
-        ctx.updateUserNav();
-        ctx.page.redirect('/');
+        const registerData = {
+            email: formData.get('email'),
+            password: formData.get('password')
+        };
+
+        authService.register(registerData)
+            .then(data => {
+                if (data.code == 409 || data.code == 403) {
+                    return alert(data.message);
+                }
+                const userData = {
+                    email: data.email,
+                    userId: data._id,
+                    token: data.accessToken
+                };
+                setUserData(userData);
+                ctx.updateUserNav();
+                ctx.page.redirect('/');
+            })
     })
 }

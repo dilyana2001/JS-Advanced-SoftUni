@@ -1,6 +1,6 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import authService from '../services/authService.js'
-
+import authService from '../services/authService.js';
+import { setUserData } from '../util.js';
 
 const loginView = () => html`
 <section id="login-page" class="login">
@@ -33,11 +33,27 @@ export default function (ctx) {
         e.preventDefault();
         const formData = new FormData(e.target);
         if (!formData.get('email') || !formData.get('password')) {
-            return alert(`All fields are required!`)
+            return alert(`All fields are required!`);
         }
-        authService.login(formData);
-        ctx.updateUserNav();
-        ctx.page.redirect('/');
+        const loginData = {
+            email: formData.get('email'),
+            password: formData.get('password')
+        }
+        authService.login(loginData)
+            .then(data => {
+                console.log(data)
+                if (data.code == 403) {
+                    return alert(data.message);
+                }
+                const userData = {
+                    email: data.email,
+                    userId: data._id,
+                    token: data.accessToken
+                };
+                setUserData(userData);
+                ctx.updateUserNav();
+                ctx.page.redirect('/');
+            })
     })
 
 }
