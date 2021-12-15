@@ -1,6 +1,5 @@
 import { getUserData } from '../util.js';
 const baseUrl = 'http://localhost:3030';
-const userData = getUserData();
 
 function login(data) {
     return fetch(`${baseUrl}/users/login`, {
@@ -27,6 +26,7 @@ function register(data) {
 }
 
 function logout() {
+        const userData = getUserData();
     return fetch(`${baseUrl}/users/logout`, {
         method: 'GET',
         headers: {

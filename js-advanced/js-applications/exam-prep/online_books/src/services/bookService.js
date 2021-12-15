@@ -1,6 +1,6 @@
 import { getUserData } from '../util.js';
 const baseUrl = 'http://localhost:3030';
-const userData = getUserData();
+
 
 function getAll() {
     return fetch(`${baseUrl}/data/books?sortBy=_createdOn%20desc`)
@@ -22,6 +22,7 @@ function getBookById(id) {
 
 
 function createBook(data) {
+    const userData = getUserData();
     return fetch(`${baseUrl}/data/books`, {
         method: 'POST',
         headers: {
@@ -43,6 +44,7 @@ function getMyBooks(userId) {
 
 
 function editBook(id, data) {
+    const userData = getUserData();
     return fetch(`${baseUrl}/data/books/${id}`, {
         method: 'PUT',
         headers: {
@@ -56,6 +58,7 @@ function editBook(id, data) {
 }
 
 function deleteBookById(id) {
+    const userData = getUserData();
     return fetch(`${baseUrl}/data/books/${id}`, {
         method: 'DELETE',
         headers: {

@@ -1,10 +1,10 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-
+ 
 import service from '../service/service.js';
 import utils from '../../utils.js';
-const userData = utils.getUserData();
-
-const detailsView = (data) => html`
+ 
+ 
+const detailsView = (data, userData) => html`
     <section id="detailsPage">
         <div class="wrapper">
             <div class="albumCover">
@@ -32,22 +32,26 @@ const detailsView = (data) => html`
         </div>
     </section>
 `;
-
+ 
 export default function (ctx) {
+    const userData = utils.getUserData();
     service.getAlbumById(ctx.params.albumId)
         .then(data => {
             console.log(data)
-            ctx.render(detailsView(data));
-
+            ctx.render(detailsView(data, userData));
+ 
             if (document.querySelector('.remove')) {
                 document.querySelector('.remove').addEventListener('click', (e) => {
                     e.preventDefault();
+                    let ifDelete = confirm("Are u sure?");
+                    if(ifDelete) {
                     service.deleteAlbumById(ctx.params.albumId)
                         .then(() => {
                             ctx.page.redirect('/');
                         })
+                    }
                 })
             }
-
+ 
         })
 }

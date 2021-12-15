@@ -1,6 +1,5 @@
 const baseUrl = 'http://localhost:3030';
 import utils from '../../utils.js';
-const userData = utils.getUserData();
 
 function login(data) {
     return fetch(`${baseUrl}/users/login`, {
@@ -27,6 +26,7 @@ function register(data) {
 }
 
 function logout() {
+const userData = utils.getUserData();
     return fetch(`${baseUrl}/users/logout`, {
         method: 'GET',
         headers: {
@@ -44,6 +44,7 @@ function getAll() {
 }
 
 function createAlbum(data) {
+const userData = utils.getUserData();
     return fetch(`${baseUrl}/data/albums`, {
         method: 'POST',
         headers: {
@@ -58,6 +59,7 @@ function createAlbum(data) {
 
 
 function getAlbumById(id) {
+const userData = utils.getUserData();
     return fetch(`${baseUrl}/data/albums/${id}`, {
         method: 'GET',
         headers: {
@@ -70,6 +72,7 @@ function getAlbumById(id) {
 }
 
 function deleteAlbumById(id) {
+const userData = utils.getUserData();
     return fetch(`${baseUrl}/data/albums/${id}`, {
         method: 'DELETE',
         headers: {
@@ -81,6 +84,7 @@ function deleteAlbumById(id) {
 }
 
 function editAlbumById(id, data) {
+const userData = utils.getUserData();
     return fetch(`${baseUrl}/data/albums/${id}`, {
         method: 'PUT',
         headers: {
